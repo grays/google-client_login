@@ -1,4 +1,4 @@
-= google-client_login
+= Google::ClientLogin
 
 Description goes here.
 

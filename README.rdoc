@@ -1,6 +1,10 @@
 = Google::ClientLogin
 
-Description goes here.
+A simple library for authenticating against the Google ClientLogin API: http://code.google.com/apis/accounts/docs/AuthForInstalledApps.html
+
+=== Does this library handle CAPTCHA challenges from Google?
+
+No.
 
 == Note on Patches/Pull Requests
  

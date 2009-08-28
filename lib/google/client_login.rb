@@ -1,5 +1,4 @@
 require "net/https"
-require "cgi"
 
 module Google
 

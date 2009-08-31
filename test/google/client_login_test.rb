@@ -31,7 +31,22 @@ class Google::ClientLoginTest < Test::Unit::TestCase
     should "have an authentication token" do
       assert_equal "DQAAAGgA...dk3fA5N", client_login.token
     end
+    
+    context "profile" do
 
+      setup do
+        @client = client_login
+        @client.stubs(:profile).returns(PROFILE_XML)
+      end
+
+      should "have a given name" do
+        assert_equal "Elizabeth", @client.given_name
+      end
+
+      should "have a family name" do
+        assert_equal "Bennet", @client.family_name
+      end
+    end
   end
 
   context "failed login" do

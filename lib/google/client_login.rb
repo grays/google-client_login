@@ -42,5 +42,14 @@ module Google
         response.body if response.code == "200"
       end
     end
+
+    def given_name
+      profile.match(/<gd:givenName>(.+)<\/gd:givenName>/)[1] if profile
+    end
+
+    def family_name
+      profile.match(/<gd:familyName>(.+)<\/gd:familyName>/)[1] if profile
+    end
+
   end
 end

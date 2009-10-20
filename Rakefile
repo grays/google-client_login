@@ -1,4 +1,3 @@
-require 'rubygems'
 require 'rake'
 
 begin
@@ -10,7 +9,7 @@ begin
     gem.email = "jasper@ambethia.com"
     gem.homepage = "http://github.com/ambethia/google-client_login"
     gem.authors = ["Jason L Perry"]
-    gem.add_development_dependency "thoughtbot-shoulda"
+    gem.add_development_dependency "shoulda"
     gem.add_development_dependency "mocha"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end

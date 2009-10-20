@@ -20,6 +20,7 @@ end
 
 require 'rake/testtask'
 Rake::TestTask.new(:test) do |test|
+  test.ruby_opts << '-rubygems' if $".include? "rubygems.rb"
   test.libs << 'lib' << 'test'
   test.pattern = 'test/**/*_test.rb'
   test.verbose = true
@@ -28,6 +29,7 @@ end
 begin
   require 'rcov/rcovtask'
   Rcov::RcovTask.new do |test|
+    test.ruby_opts << '-rubygems' if $".include? "rubygems.rb"
     test.libs << 'test'
     test.pattern = 'test/**/*_test.rb'
     test.verbose = true

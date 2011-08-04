@@ -1,46 +1,11 @@
-require 'rake'
-
-begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gem|
-    gem.name = "google-client_login"
-    gem.summary = %Q{Google ClientLogin authentication}
-    gem.description = %Q{A simple library for authenticating against the Google ClientLogin API}
-    gem.email = "jasper@ambethia.com"
-    gem.homepage = "http://github.com/ambethia/google-client_login"
-    gem.authors = ["Jason L Perry"]
-    gem.add_development_dependency "shoulda"
-    gem.add_development_dependency "mocha"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
-  end
-  Jeweler::GemcutterTasks.new
-rescue LoadError
-  puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
-end
+require 'bundler/gem_tasks'
 
 require 'rake/testtask'
 Rake::TestTask.new(:test) do |test|
-  test.ruby_opts << '-rubygems' if $".include? "rubygems.rb"
-  test.libs << 'lib' << 'test'
+  test.libs   << 'lib' << 'test'
   test.pattern = 'test/**/*_test.rb'
   test.verbose = true
 end
-
-begin
-  require 'rcov/rcovtask'
-  Rcov::RcovTask.new do |test|
-    test.ruby_opts << '-rubygems' if $".include? "rubygems.rb"
-    test.libs << 'test'
-    test.pattern = 'test/**/*_test.rb'
-    test.verbose = true
-  end
-rescue LoadError
-  task :rcov do
-    abort "RCov is not available. In order to run rcov, you must: sudo gem install spicycode-rcov"
-  end
-end
-
-task :test => :check_dependencies
 
 task :default => :test
 
@@ -53,7 +18,7 @@ Rake::RDocTask.new do |rdoc|
   end
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "google/client_login #{version}"
+  rdoc.title    = "google/client_login #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end

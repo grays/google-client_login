@@ -2,12 +2,7 @@ require 'test/unit'
 require 'shoulda'
 require 'mocha'
 
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-$LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'google/client_login'
-
-class Test::Unit::TestCase
-end
 
 PROFILE_XML =<<-EOF
 <atom:entry xmlns:atom='http://www.w3.org/2005/Atom'

@@ -19,7 +19,7 @@ class Google::ClientLoginTest < Test::Unit::TestCase
           "LSID=DQAAAGsA...lk8BBbG",
           "Auth=DQAAAGgA...dk3fA5N"
         ].join("\n")
-      ) 
+      )
 
       Net::HTTP.any_instance.stubs(:request).returns(@http_mock)
     end
@@ -31,7 +31,7 @@ class Google::ClientLoginTest < Test::Unit::TestCase
     should "have an authentication token" do
       assert_equal "DQAAAGgA...dk3fA5N", client_login.token
     end
-    
+
     context "profile" do
 
       setup do
@@ -63,7 +63,7 @@ class Google::ClientLoginTest < Test::Unit::TestCase
           "CaptchaToken=DQAAAGgA...dkI1LK9",
           "CaptchaUrl=Captcha?ctoken=HiteT4b0....eiI7lUSN"
         ].join("\n")
-      ) 
+      )
 
       Net::HTTP.stubs(:post_form).returns(@http_mock)
     end
@@ -75,7 +75,5 @@ class Google::ClientLoginTest < Test::Unit::TestCase
     should "not have an authentication token" do
       assert_nil nil, client_login.token
     end
-
   end
-
 end

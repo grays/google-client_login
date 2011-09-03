@@ -4,7 +4,7 @@ module Google
 
   class ClientLogin
 
-    attr_reader :token, :email
+    attr_reader :token, :email, :response
 
     def initialize(email, password, options = {})
       @email           = email
@@ -20,8 +20,8 @@ module Google
         "Passwd"      => password
       })
 
-      response = http.start { |conn| conn.request(request) }
-      @token   = response.body.match(/Auth=(.*)/)[1] if response.code == "200"
+      @response = http.start { |conn| conn.request(request) }
+      @token    = response.body.match(/Auth=(.*)/)[1] if response.code == "200"
     end
 
     def logged_in?
